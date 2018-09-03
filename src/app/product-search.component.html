@@ -1,14 +1,14 @@
 <div class = 'container'>
-   <h1>Search Product</h1>
+   <h1>Ask question</h1>
 
    <form (ngSubmit)='onSubmit()'>
 
       <div class = 'form-group' [formGroup]='search'>
-         <label for = 'name'>Name :</label>
+         <label for = 'name'>Question:</label>
          <input type = 'text' formControlName='name'>
       </div>
       <br />
-      <button type='submit' class='btn btn-success'>Search</button>
+      <button type='submit' class='btn btn-success'>Ask</button>
 
    </form>
    <br /><br />
