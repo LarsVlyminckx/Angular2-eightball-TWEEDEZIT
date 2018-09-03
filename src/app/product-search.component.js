@@ -21,7 +21,7 @@ var ProductSearchComponent = (function () {
         });
     };
     ProductSearchComponent.prototype.onSubmit = function () {
-        this.result_answer = this.productService.searchProduct(this.search.value.question);
+        this.result_answer = this.productService.searchProduct(this.search.value.name);
     };
     return ProductSearchComponent;
 }());

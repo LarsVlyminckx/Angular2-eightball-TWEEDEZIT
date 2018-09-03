@@ -20,20 +20,20 @@ export class ProductService {
 
    // get a product based on the name
    searchProduct(name: string): string {
-      
-       if (localStorage.getItem(name)) {
-	
-}
-       
        let answer:string = ''
-       
+           
+       if (localStorage.getItem(name) != null) {
+           answer = localStorage.getItem(name)
+           }
+   else {
+
        let max: number = this.answers.length - 1;
        let min:number = 0;
        let range:number = max - min + 1;      
        let rnd:number = (Math.random() * range) + min;
        answer = this.answers[Math.floor(rnd)]
        localStorage.setItem(name, answer);
-       console.log(localStorage.getItem(name))
+}
       return answer;
    }
 }

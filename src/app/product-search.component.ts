@@ -23,6 +23,6 @@ export class ProductSearchComponent {
    constructor(private productService: ProductService) {}
 
    onSubmit() {
-       this.result_answer = this.productService.searchProduct(this.search.value.question);
+       this.result_answer = this.productService.searchProduct(this.search.value.name);
    }
 }

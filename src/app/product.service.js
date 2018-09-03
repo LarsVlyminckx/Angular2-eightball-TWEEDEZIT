@@ -18,16 +18,18 @@ var ProductService = (function () {
     }
     // get a product based on the name
     ProductService.prototype.searchProduct = function (name) {
-        if (localStorage.getItem(name)) {
-        }
         var answer = '';
-        var max = this.answers.length - 1;
-        var min = 0;
-        var range = max - min + 1;
-        var rnd = (Math.random() * range) + min;
-        answer = this.answers[Math.floor(rnd)];
-        localStorage.setItem(name, answer);
-        console.log(localStorage.getItem(name));
+        if (localStorage.getItem(name) != null) {
+            answer = localStorage.getItem(name);
+        }
+        else {
+            var max = this.answers.length - 1;
+            var min = 0;
+            var range = max - min + 1;
+            var rnd = (Math.random() * range) + min;
+            answer = this.answers[Math.floor(rnd)];
+            localStorage.setItem(name, answer);
+        }
         return answer;
     };
     return ProductService;
