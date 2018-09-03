@@ -5,7 +5,7 @@
 
       <div class = 'form-group' [formGroup]='search'>
          <label for = 'question'>Question:</label>
-         <input type = 'text' formControlName='question'>
+         <input type = 'text' formControlName='question' value="is this difficult">
       </div>
       <br />
       <button type='submit' class='btn btn-success'>Search</button>
@@ -13,7 +13,6 @@
    </form>
    <br /><br />
 
-   <label>Name :&nbsp;</label>{{ result_question }}<br />
-   <label>Description :&nbsp;</label>{{ result_answer }}<br />
+   <label>Answer :&nbsp;</label>{{ result_answer }}<br />
 
 </div>

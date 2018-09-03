@@ -21,13 +21,7 @@ var ProductSearchComponent = (function () {
         });
     };
     ProductSearchComponent.prototype.onSubmit = function () {
-        var _this = this;
-        this.productService.searchProduct(this.search.value.name)
-            .subscribe(function (data) {
-            _this.result_name = data.name;
-            _this.result_description = data.description;
-            _this.result_price = data.price;
-        });
+        this.result_answer = this.productService.searchProduct(this.search.value.question);
     };
     return ProductSearchComponent;
 }());

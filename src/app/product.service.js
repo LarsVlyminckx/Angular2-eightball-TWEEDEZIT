@@ -14,12 +14,21 @@ var ProductService = (function () {
     function ProductService(http) {
         this.http = http;
         this.productsServiceURI = 'http://localhost:4000';
-        this.names = new Array("It is certain.", "It is decidedly so.", "Without a doubt.", "Yes - definitely.", "You may rely on it.", "As I see it, yes.", "Most likely.", "Outlook good.", "Yes.", "Signs point to yes.", "Reply hazy", "try again", "Ask again later.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again.", "Don't count on it.", "My reply is no.", "My sources say no", "Outlook not so good.", "Very doubtful.");
+        this.answers = new Array("It is certain.", "It is decidedly so.", "Without a doubt.", "Yes - definitely.", "You may rely on it.", "As I see it, yes.", "Most likely.", "Outlook good.", "Yes.", "Signs point to yes.", "Reply hazy", "try again", "Ask again later.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again.", "Don't count on it.", "My reply is no.", "My sources say no", "Outlook not so good.", "Very doubtful.");
     }
     // get a product based on the name
     ProductService.prototype.searchProduct = function (name) {
-        var url = this.productsServiceURI + "/search";
-        return this.http.post(url, "name=" + name, { headers: new http_1.HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded') });
+        if (localStorage.getItem(name)) {
+        }
+        var answer = '';
+        var max = this.answers.length - 1;
+        var min = 0;
+        var range = max - min + 1;
+        var rnd = (Math.random() * range) + min;
+        answer = this.answers[Math.floor(rnd)];
+        localStorage.setItem(name, answer);
+        console.log(localStorage.getItem(name));
+        return answer;
     };
     return ProductService;
 }());
